@@ -18,7 +18,6 @@ node {
     }
     stage('Test  SpringBoot Application') {
         // give it a moment to start up then perform a basic test to verify if something has been deployed or not...
-        // sh "sleep 10; curl -k localhost"
         sh "until curl -k localhost; do sleep 1; done;"
     }
     stage('Stop  SpringBoot Application') {
