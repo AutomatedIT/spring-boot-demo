@@ -22,10 +22,10 @@ node {
     }
     stage('Stop  SpringBoot Application') {
         // kill the backgrounded process
-        sh "kill -9 `ps -eaf | grep spring | grep profile | awk '{print \$2}'` | :"
+        //-//sh "kill -9 `ps -eaf | grep spring | grep profile | awk '{print \$2}'` | :"
     }
     stage('Archive results') {
         // archive things we may want, like the application jar file, test results, log files etc...
-        archiveArtifacts artifacts: 'build/libs/cicdjenkins*.jar'
+        //-//archiveArtifacts artifacts: 'build/libs/cicdjenkins*.jar'
     }   
 }
