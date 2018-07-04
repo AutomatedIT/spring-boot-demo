@@ -13,7 +13,7 @@ node {
         sh "nohup /usr/bin/java -jar -Dspring.profiles.active=test -Dserver.port=80 /app.jar &"
     }
     stage('Test  SpringBoot Application') {
-        sh "curl -k localhost | grep auotmatedITSolutions"
+        sh "sleep 20; curl -k localhost | grep auotmatedITSolutions"
     }
     stage('Stop  SpringBoot Application') {
         sh "kill -9 `ps -eaf | grep spring | grep profile | awk '{print \$2}'`"
