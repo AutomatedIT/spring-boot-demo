@@ -26,6 +26,6 @@ node {
     }
     stage('Archive results') {
         // archive things we may want, liek the application jar file, test results, log files etc...
-        archiveArtifacts artifacts: './build/libs/cicdjenkins*.jar'
+        archiveArtifacts artifacts: 'build/libs/cicdjenkins*.jar'
     }   
 }
