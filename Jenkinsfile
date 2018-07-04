@@ -4,7 +4,7 @@ node {
         git url: 'https://github.com/AutomatedIT/springbootjenkinspipelinedemo.git', branch: 'master'
     }
     stage('Run Gradle Build') {
-        // build the application inside the docker container
+        // build the application from source inside the docker container using gradle
         sh "./gradlew clean build"
     }
     stage('Transfer Artefacts') {
@@ -17,15 +17,15 @@ node {
         sh "nohup /usr/bin/java -jar -Dspring.profiles.active=test -Dserver.port=80 /app.jar &"
     }
     stage('Test  SpringBoot Application') {
-        // siplest test to verify if something has been deployed or not...
+        // give it a moment to start then perform a basic test to verify if something has been deployed or not...
         sh "sleep 20; curl -k localhost"
     }
     stage('Stop  SpringBoot Application') {
-        // kill the backgroun process
+        // kill the backgrounded process
         sh "kill -9 `ps -eaf | grep spring | grep profile | awk '{print \$2}'`"
     }
     stage('Archive results') {
-        // archive things we may want, liek the application jar file, test results, log files etc...
+        // archive things we may want, like the application jar file, test results, log files etc...
         archiveArtifacts artifacts: 'build/libs/cicdjenkins*.jar'
     }   
 }
