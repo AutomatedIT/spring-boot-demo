@@ -17,4 +17,5 @@ node {
     }
     stage('Stop  SpringBoot Application') {
         kill -9 `ps -eaf | grep spring | grep profile | awk '{print $2}'`
+    }
 }
