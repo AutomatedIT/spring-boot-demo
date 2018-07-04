@@ -10,6 +10,11 @@ node {
         sh "cp ./build/libs/cicdjenkins*.jar /app.jar"
     }
     stage('Run SpringBoot Application') {
-        sh "/usr/bin/java -jar -Dspring.profiles.active=test -Dserver.port=80 /app.jar"
+        sh "nohup /usr/bin/java -jar -Dspring.profiles.active=test -Dserver.port=80 /app.jar &"
     }
+    stage('Test  SpringBoot Application') {
+        sh "curl -k localhost | grep auotmatedITSolutions"
+    }
+    stage('Stop  SpringBoot Application') {
+        kill -9 `ps -eaf | grep spring | grep profile | awk '{print $2}'`
 }
