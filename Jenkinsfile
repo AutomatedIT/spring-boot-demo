@@ -24,7 +24,7 @@ node {
         // kill the backgrounded process
         sh "kill -9 `ps -eaf | grep spring | grep profile | awk '{print \$2}'` | :"
     }
-    stage('Archive results') {
+    stage('Archive Results') {
         // archive things we may want to keep alongside the corresponding build
         // like the application jar file, test results, any log files etc...
         archiveArtifacts artifacts: 'build/libs/cicdjenkins*.jar, build/test-results/test/TEST*.xml'
