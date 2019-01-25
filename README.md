@@ -1,5 +1,4 @@
-# spring-boot-demo
-SPRING BOOT DEMO APP
+# SPRING BOOT DEMO APP
 
 running on http://localhost:8080
 
@@ -7,7 +6,7 @@ running on http://localhost:8080
 
 Checkout the contents of the repo
 
-'''./gradlew build'''
+./gradlew build
 
 ### TO BUILD A DOCKER IMAGE
 
