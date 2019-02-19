@@ -17,9 +17,15 @@ docker build -t automateditsolutions/demo_app:latest .
 docker run -d --name sprint-boot-demo -p 8080:8080 automateditsolutions/demo_app:latest
 
 if running ./gradlew build results in
+
 : No such file or directory
+
 vi ./gradlew
+
 do
+
 set fileformat=unix
+
 :wq
+
 and try again...
